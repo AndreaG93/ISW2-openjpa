@@ -75,7 +75,7 @@ public class ValidationUtils {
                 @SuppressWarnings("unused")
                 Class<?> c = Class.forName(
                     "javax.validation.ValidationException");
-            } catch (ClassNotFoundException e) {
+      /home/andrea      } catch (ClassNotFoundException e) {
                 if (bValRequired) {
                     // fatal error - ValidationMode requires a validator
                     Message msg = _loc.get("vlem-creation-error");
