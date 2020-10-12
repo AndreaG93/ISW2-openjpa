@@ -38,7 +38,16 @@
 
     <version>3.1.2</version>
 
+    <modules>
+        <module>openjpa-lib</module>
+        <module>tests</module>
+    </modules>
+    
     <properties>
+        
+        <!-- Add by 'Andrea Graziani': Following is required by 'Jacoco' to collect coverage data -->
+        <aggregate.report.dir>tests/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
+        
         <java.class.version>1.8</java.class.version>
         <java.testclass.version>1.8</java.testclass.version>
 
@@ -165,26 +174,7 @@
       <tag>3.1.2</tag>
   </scm>
 
-    <modules>
-        <module>openjpa-lib</module>
-        <module>openjpa-kernel</module>
-        <module>openjpa-jdbc</module>
-        <module>openjpa-persistence</module>
-        <module>openjpa-persistence-jdbc</module>
-        <module>openjpa-persistence-locking</module>
-        <module>openjpa-xmlstore</module>
-        <module>openjpa-slice</module>
-        <module>openjpa-jest</module>
-        <module>openjpa-kubernetes</module>
-        <module>openjpa</module>
-        <module>openjpa-project</module>
-        <module>openjpa-examples</module>
-        <module>openjpa-integration</module>
-        <module>openjpa-all</module>
-        <module>openjpa-tools</module>
-        <module>openjpa-features</module>
-        <module>openjpa-junit5</module>
-    </modules>
+    
 
     <profiles>
         <!-- ================ -->
@@ -1870,6 +1860,26 @@
 
         <pluginManagement>
             <plugins>
+                
+               
+
+                <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+                <!-- https://github.com/SonarSource/sonar-scanning-examples/tree/master/sonarqube-scanner-maven/maven-multimodule -->
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+                
+                
+                
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -1905,6 +1915,7 @@
                         <redirectTestOutputToFile>true</redirectTestOutputToFile>
                         <trimStackTrace>false</trimStackTrace>
                         <useSystemClassLoader>true</useSystemClassLoader>
+                        <testFailureIgnore>true</testFailureIgnore>
                         <excludes>
                             <!-- exclude classes that include a $; inner classes
                                  are not test cases per OpenJPA standards -->
@@ -2289,6 +2300,31 @@
         </pluginManagement>
 
         <plugins>
+            
+            <!-- https://mvnrepository.com/artifact/org.pitest/pitest-maven -->
+     
+     <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.5.2</version>
+        <configuration>
+          <targetClasses>
+            <param>org.apache.openjpa.lib.util.SimpleRegex</param>
+          </targetClasses>
+          <targetTests>
+            <param>andrea.SimpleRegex.*</param>
+          </targetTests>
+        </configuration>
+      </plugin>
+            
+      <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+      <!-- https://github.com/SonarSource/sonar-scanning-examples/tree/master/sonarqube-scanner-maven/maven-multimodule -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.6</version>
+      </plugin>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
