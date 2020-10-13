@@ -2076,11 +2076,12 @@
                     <artifactId>maven-shade-plugin</artifactId>
                     <version>3.2.0</version>
                 </plugin>
+                <!--
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>3.1.1</version>
-                </plugin>
+                </plugin> -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -2159,6 +2160,7 @@
                             <pluginExecutions>
 
                                 <!--checkstyle plugin -->
+                                <!--
                                 <pluginExecution>
                                     <pluginExecutionFilter>
                                         <groupId>org.apache.maven.plugins</groupId>
@@ -2172,7 +2174,7 @@
                                         <ignore />
                                     </action>
                                 </pluginExecution>
-
+                                -->
                                 <!--enforcer plugin -->
                                 <pluginExecution>
                                     <pluginExecutionFilter>
@@ -2346,6 +2348,8 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
             </plugin>
+            
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -2380,7 +2384,7 @@
                                         </module>
                                     </module>
 
-                                    <!-- File location is specified in root pom.xml via ${checkstyle.suppressions.location} -->
+                                  
                                     <module name="SuppressionFilter">
                                         <property name="file" value="${checkstyle.suppressions.location}" />
                                         <property name="optional" value="true" />
@@ -2390,7 +2394,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+                </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
