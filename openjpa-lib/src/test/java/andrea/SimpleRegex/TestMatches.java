@@ -3,8 +3,7 @@ package andrea.SimpleRegex;
 import org.apache.openjpa.lib.util.SimpleRegex;
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class TestMatches extends TestUtil {
 
@@ -39,4 +38,48 @@ public class TestMatches extends TestUtil {
             // Expected
         }
     }
+
+    @Test
+    public void additionalTestCase_1() {
+
+        try {
+
+            SimpleRegex simpleRegex = new SimpleRegex("The .*br.wn.*d.g", true);
+            boolean output = simpleRegex.matches("the quick BRown fox jumped over the lazy dog");
+            assertTrue(output);
+
+        } catch (Exception exception) {
+            // Expected
+        }
+    }
+
+    @Test
+    public void additionalTestCase_2() {
+
+        try {
+
+            SimpleRegex simpleRegex = new SimpleRegex("h.*lo", false);
+            boolean output = simpleRegex.matches("Hello");
+            assertFalse(output);
+
+        } catch (Exception exception) {
+            // Expected
+        }
+    }
+
+    @Test
+    public void additionalTestCase_3() {
+
+        try {
+
+            SimpleRegex simpleRegex = new SimpleRegex(".*YoHello", false);
+            boolean output = simpleRegex.matches("Hellow");
+            assertFalse(output);
+
+        } catch (Exception exception) {
+            // Expected
+        }
+    }
 }
+
+
