@@ -1,0 +1,8 @@
+addons:
+  sonarcloud:
+    organization: "andreag93"
+    token:
+      secure: RKGC5+hKw91YPJbBihatxfFmbJq0zWndrkND2PWR6XGFU6QKVWSK7OtHOrr2H93sz4fNn1eq/L41rSh1hjWuvRtcJS0l/roxQrVUibVvgRyN+dC0X0NQrj0/FZUsJV6zs0GDHY6z9Vl3ye22385l2QxXqeuG70aa+xzsEsxNnA+cd9IekCRuf4y0npdm2Dxsoz0/eEwjcgw49xR8e1iNX+MZ26B9/DgVXjAtmafw4SwONoEAihcBCiDa3BLYz9kMW6plMiTHjOyg7KygQjUMnKjBrwVwPr4Pepb6hWchKYRdTVAiUvL44G45QxHuVcYjfZYgG7GnsW+YiD9ymdo0Xx7INekAn/UuCCY9A4LV/c6zOIRJCSLIpUUXQGvrNdySPOm5eSLDlJgCXZijSkIGXV0QTI51klVEsoL3eCIRGoBQUsJjbgug4hJsNoZ4Gf9PYm153DJXKxejikeeXowIEWwSljdwTFFp/ajk1k2effjcG9JjQLiPFOkBzlomS60PFTphgEabqRR8opzJ9pbW5g51QTxxghOZ1WWkuVNVTC+9vcP483gS+hcaF/TyAj29ptdofCew6NStAOrwE3uQi3vgSAV7dUquoQXU8DbFSfsbDtFcniL1mPQC7GMjB/3JykBwuWssvfAoa2Aaz/vELgysXpjpgGrvWMLE0bNJFD8=
+  
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=AndreaG93_ISW2-openjpa -Dmaven.test.failure.ignore=true
