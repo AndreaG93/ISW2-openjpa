@@ -14,15 +14,9 @@ public class TestMatches extends TestUtil {
     @Test
     public void validTestCase_1() {
 
-        try {
-
-            SimpleRegex simpleRegex = new SimpleRegex(".*", caseInsensitive);
-            boolean output = simpleRegex.matches("Andrea1234\t= ");
-            assertTrue(output);
-
-        } catch (Exception exception) {
-            // Expected
-        }
+        SimpleRegex simpleRegex = new SimpleRegex(".*", caseInsensitive);
+        boolean output = simpleRegex.matches("Andrea1234\t= ");
+        assertTrue(output);
     }
 
     @Test
@@ -40,45 +34,27 @@ public class TestMatches extends TestUtil {
     }
 
     @Test
-    public void additionalTestCase_1() {
+    public void additionalTest_1() {
 
-        try {
-
-            SimpleRegex simpleRegex = new SimpleRegex("The .*br.wn.*d.g", true);
-            boolean output = simpleRegex.matches("the quick BRown fox jumped over the lazy dog");
-            assertTrue(output);
-
-        } catch (Exception exception) {
-            // Expected
-        }
+        SimpleRegex simpleRegex = new SimpleRegex("The .*br.wn.*d.g", true);
+        boolean output = simpleRegex.matches("the quick BRown fox jumped over the lazy dog");
+        assertTrue(output);
     }
 
     @Test
-    public void additionalTestCase_2() {
+    public void additionalTest_2() {
 
-        try {
-
-            SimpleRegex simpleRegex = new SimpleRegex("h.*lo", false);
-            boolean output = simpleRegex.matches("Hello");
-            assertFalse(output);
-
-        } catch (Exception exception) {
-            // Expected
-        }
+        SimpleRegex simpleRegex = new SimpleRegex("h.*lo", false);
+        boolean output = simpleRegex.matches("Hello");
+        assertFalse(output);
     }
 
     @Test
-    public void additionalTestCase_3() {
+    public void additionalTest_3() {
 
-        try {
-
-            SimpleRegex simpleRegex = new SimpleRegex(".*YoHello", false);
-            boolean output = simpleRegex.matches("Hellow");
-            assertFalse(output);
-
-        } catch (Exception exception) {
-            // Expected
-        }
+        SimpleRegex simpleRegex = new SimpleRegex(".*YoHello", false);
+        boolean output = simpleRegex.matches("Hellow");
+        assertFalse(output);
     }
 }
 
