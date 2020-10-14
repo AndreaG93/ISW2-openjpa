@@ -323,9 +323,11 @@
                 <configuration>
                     <targetClasses>
                         <param>org.apache.openjpa.lib.util.SimpleRegex</param>
+                        <param>org.apache.openjpa.lib.util.ClassUtil</param>
                     </targetClasses>
                     <targetTests>
-                        <param>andrea.SimpleRegex.*</param>
+                        <!-- <param>andrea.SimpleRegex.*</param> -->
+                        <param>andrea.ClassUtil.OtherTests</param>
                     </targetTests>
                 </configuration>
             </plugin>

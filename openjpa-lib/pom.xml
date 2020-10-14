@@ -81,4 +81,28 @@
         </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.5.2</version>
+                <configuration>
+                    <targetClasses>
+                        <param>org.apache.openjpa.lib.util.SimpleRegex</param>
+                        <param>org.apache.openjpa.lib.util.ClassUtil</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>andrea.ClassUtil.TestGetPackageNameClass</param>
+                        <param>andrea.ClassUtil.TestToClass</param>
+                        <param>andrea.ClassUtil.TestToClassFalseResolve</param>
+                        <param>andrea.ClassUtil.TestGetClassNameClass</param>
+                        <param>andrea.SimpleRegex.TestMatches</param>
+                    </targetTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

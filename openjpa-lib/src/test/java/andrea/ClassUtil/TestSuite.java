@@ -11,6 +11,7 @@ import org.junit.runners.Suite;
             TestGetClassNameString.class,
             TestToClass.class,
             TestToClassFalseResolve.class,
+            OtherTests.class,
     })
     public class TestSuite {
     }

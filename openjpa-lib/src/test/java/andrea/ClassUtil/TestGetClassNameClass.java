@@ -16,7 +16,7 @@ public class TestGetClassNameClass {
             Class<?> myClass = Class.forName("java.lang.String");
 
             String output = ClassUtil.getClassName(myClass);
-            Assert.assertEquals(output, "java.lang");
+            Assert.assertEquals(output, "String");
 
         } catch (Exception exception) {
             fail();
